@@ -1,0 +1,162 @@
+En Construcción....
+
+
+
+              ,;;;,
+             ;;;;;;;
+          .-'`\, '/_
+        .'   \ ("`(_)
+       / `-,.'\ \_/
+       \  \/\  `--`
+        \  \ \
+         / /| |
+        /_/ |_|
+       ( _\ ( _\  #:##        #:##        #:##         #:##
+                        #:##        #:##        #:##
+
+================================================================
+
+
+
+                             _..__
+                           .' I   '.
+                           |.-"""-.|
+                          _;.-"""-.;_
+                      _.-' _..-.-.._ '-._
+                     ';--.-(_o_I_o_)-.--;'
+                      `. | |  | |  | | .`
+                        `-\|  | |  |/-'
+                           |  | |  |
+                           |  \_/  |
+                        _.'; ._._. ;'._
+                   _.-'`; | \  -  / | ;'-.
+                 .' :  /  |  |   |  |  \  '.
+                /   : /__ \  \___/  / __\ : `.
+               /    |   /  '._/_\_.'  \   :   `\
+              /     .  `---;"""""'-----`  .     \
+             /      |      |()    ()      |      \
+            /      /|      |              |\      \
+           /      / |      |()    ()      | \      \
+           |    <   \_,,___|_.....____,,__/  `>     |
+           \     \  | ][     |   |    ][  |  /     /
+            \     \ ;=""====='"""'====""==; /     /
+             |/`\  \/      |()    ()      \/  /`\|
+              |_/.-';      |              |`-.\_|
+                /   |      ;              :   \
+                |__.|      |              |.__|
+                    ;      |              |
+                    |      :              ;
+                    |      :              |
+                    ;      |              |
+                    ;      |              ;
+                    |      :              |
+                    |      |              ;
+                    |      |              ;
+                    '-._   ;           _.-'
+                        `;"--.....--";`
+                         |    | |    |
+                         |    | |    |
+                         |    | |    |
+                         T----T T----T
+                    _..._L____J L____J _..._
+                  .` "-. `%   | |    %` .-" `.
+                 /      \    .: :.     /      \
+                 '-..___|_..=:` `-:=.._|___..-'
+
+================================================================
+
+
+
+
+
+
+
+Saber el tipo de algoritmo de un hast
+        hastcat
+
+Sacar Hast en linux
+        [TYPE_ALGO]sum [FILE]
+        md5sum imagenUsb.dd
+        sha512sum imagenUsb.dd
+
+
+
+
+
+Informacion de los discos
+        sudo fdisk -l   o   df -h
+        
+Herramienta para copiar bit a bit
+        sudo dd if=/[PATH_DISK]/ of=/[PATH_ORIGEN]/[NAME].dd
+        sudo dd if=/dev/sdb1 of=/home/kali/imagenUsb.dd
+Para ver como trabaja la herramienta, se usa pv. Tardara más
+        sudo dd if=/dev/sdb1 | pv | of=/home/kali/imagenUsb.dd
+
+Una herramienta mejorada que dd
+        sudo dc3dd if=/dev/sdb1 of=/home/kali/imagenUsb.dd
+        bs=4M   ---   Manipular la velocidad de copiado, puede provocar errores
+        hash=md5   ---   Te calcula el hast al terminar la copia
+        log=/home/kali/log_hast.txt   ---   Crear un log que copie automaticamente la evidencia
+
+Montar una unidad
+        mount   ---   muestra los discos montados
+        mkdir USB   ---   crear un directorio para montar el disco ahí
+        sudo mount /dev/sdb1 USB
+        ls USB   ---   veras el contenido del disco
+
+        Recomendable= sudo mount -o ro /dev/sdb1 USB
+        -o ro   ---   se monta con read only
+
+Desmontar unidad         
+        sudo umount USB
+
+
+
+
+
+
+
+
+
+
+
+
+AUTOPSY
+
+Primera parte, un nuevo caso
+        New Case
+1. Case Information
+        Agregar en Case Name
+        Direccion donde se guardara
+I2. Optional information
+        Case Number
+        Name
+Finish
+
+Segunda parte, informacion de la evidencia
+1. Select Host
+        Generate new host name based on data source name
+2. Select Data Source Type
+        Disk Image
+3. Select Data Source
+        Seleccionar la imagen
+        Zona horaria correctar de la perosa
+        Sector size Auto Detect
+4. Configure Ingest
+        Quitar los que no se necesiten, por ex para una imagen de un usb quitar:
+        Android
+        iOS
+        GPX
+        YARA
+        Plaso
+        DJI
+        Cyber
+        Android
+        VB
+5. Add Data Source
+        Procesa la informacion
+        Finish
+
+
+
+
