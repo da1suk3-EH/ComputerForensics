@@ -79,6 +79,8 @@ Sacar Hast en linux
         md5sum imagenUsb.dd
         sha512sum imagenUsb.dd
 
+Generar hash en windows
+        certutil -hashfile memdump.mem md5
 
 
 
@@ -113,6 +115,12 @@ Desmontar unidad
 
 
 
+
+EXTRAER MEMORIA EN LINUX
+        https://github.com/504ensicsLabs/LiME
+
+EXTRAER MEMORIA EN WINDOWS
+        Exterro FTK Imager
 
 
 
