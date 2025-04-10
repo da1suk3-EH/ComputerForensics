@@ -204,7 +204,7 @@ ________________________________________________________________
 # Ayuda y plugin
         ./volatility -h
 # Ver que sistema/perfil usa
-        ./volatility -f [FILE] imageninfo
+        ./volatility -f [FILE] imageinfo
 # Listar los procesos en ejecucion en un momento del dump
         ./volatility -f [FILE] --profile=[PROFILE] pslist
         ./volatility -f [FILE] --profile=[PROFILE] psscan
