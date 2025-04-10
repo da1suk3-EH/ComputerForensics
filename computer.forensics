@@ -216,10 +216,16 @@ ________________________________________________________________
         ./volatility -f [FILE] --profile=[PROFILE] dlllist -p 608
 # Añadiendo dump, se puede sercargar un ejecutable
         --dump-dir= .   -o-   --dump-dir=/PATH
+        ./volatility -f Practica02RAM.mem --profile=VistaSP1x86 procdump -p 688 --dump-dir=.
 # Solo subir a VirusTotal los HASH de los archivos
         md5sum executable.exe
         sd45v6sd15f46ds5f4s6d54fs
 
+
+Busqueda automatica de algunos da
+        bulk_extractor [FILE] -o [DIR]
+
+        string [FILE] | grep "[DATE]"
 
 
 
