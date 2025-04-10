@@ -17,7 +17,6 @@ En Construcción....
 ================================================================
 
 
-
                              _..__
                            .' I   '.
                            |.-"""-.|
@@ -67,91 +66,85 @@ En Construcción....
 
 
 
+Identificar algoritmo del HASH
+________________________________________________________________
+
+# Saber el tipo de algoritmo de un hast
+        hash-identifier
+        haiti -e [HAST]
+        https://hashes.com/en/decrypt/hash
 
 
+Generar HAST
+________________________________________________________________
 
-
-Saber el tipo de algoritmo de un hast
-        hastcat
-
-Sacar Hast en linux
+# Linux
         [TYPE_ALGO]sum [FILE]
         md5sum imagenUsb.dd
         sha512sum imagenUsb.dd
 
-Generar hash en windows
-        certutil -hashfile memdump.mem md5
+# Windows
+        certutil -hashfile memdump.mem MD5
+        certutil -hashfile reto.sda.img SHA384
 
 
+Crear un Imagenes
+________________________________________________________________
 
-
-Informacion de los discos
+# Enumerar informacion de los discos
         sudo fdisk -l   o   df -h
         
-Herramienta para copiar bit a bit
+# Herramienta DD para copiar bit a bit
         sudo dd if=/[PATH_DISK]/ of=/[PATH_ORIGEN]/[NAME].dd
         sudo dd if=/dev/sdb1 of=/home/kali/imagenUsb.dd
-Para ver como trabaja la herramienta, se usa pv. Tardara más
+# Activar modo vervous con | pv |
         sudo dd if=/dev/sdb1 | pv | of=/home/kali/imagenUsb.dd
 
-Una herramienta mejorada que dd
+# DC3DD mejora las funciones de DD
         sudo dc3dd if=/dev/sdb1 of=/home/kali/imagenUsb.dd
         bs=4M   ---   Manipular la velocidad de copiado, puede provocar errores
         hash=md5   ---   Te calcula el hast al terminar la copia
         log=/home/kali/log_hast.txt   ---   Crear un log que copie automaticamente la evidencia
 
-Montar una unidad
+
+Montar unidades
+________________________________________________________________
+
+# Montar
         mount   ---   muestra los discos montados
         mkdir USB   ---   crear un directorio para montar el disco ahí
         sudo mount /dev/sdb1 USB
         ls USB   ---   veras el contenido del disco
+# Siempre mejor añadir "-o ro" para montar con read only
+        sudo mount -o ro /dev/sdb1 USB
 
-        Recomendable= sudo mount -o ro /dev/sdb1 USB
-        -o ro   ---   se monta con read only
-
-Desmontar unidad         
+# Desmontar        
         sudo umount USB
 
 
-
-
-
-EXTRAER MEMORIA EN LINUX
-        https://github.com/504ensicsLabs/LiME
-
-EXTRAER MEMORIA EN WINDOWS
-        Exterro FTK Imager
-
-
-
-
-
-
-
-
 AUTOPSY
+________________________________________________________________
 
-Primera parte, un nuevo caso
+# Primera parte, un nuevo caso
         New Case
-1. Case Information
+# 1.- Case Information
         Agregar en Case Name
         Direccion donde se guardara
-I2. Optional information
+# 2.- Optional information
         Case Number
         Name
-Finish
+# Finish
 
-Segunda parte, informacion de la evidencia
-1. Select Host
+# Segunda parte, informacion de la evidencia
+# 1.- Select Host
         Generate new host name based on data source name
-2. Select Data Source Type
+# 2.- Select Data Source Type
         Disk Image
-3. Select Data Source
+# 3.- Select Data Source
         Seleccionar la imagen
-        Zona horaria correctar de la perosa
+        Zona horaria correcta de la persona
         Sector size Auto Detect
-4. Configure Ingest
-        Quitar los que no se necesiten, por ex para una imagen de un usb quitar:
+# 4.- Configure Ingest (Quitar los que no se necesiten, por ex para una imagen de un usb quitar)
         Android
         iOS
         GPX
@@ -161,9 +154,54 @@ Segunda parte, informacion de la evidencia
         Cyber
         Android
         VB
-5. Add Data Source
+# 5.- Add Data Source
         Procesa la informacion
-        Finish
+# Finish
+
+# Ubicaciones importantes Linux #
+        Analisys Results > OS Accounts   ---   Numero de usuarios
+        Data Artifacts > Operating System Information   ---   Sistema operativo y Kernel
+        /etc/passwd o /home/[Users]   ---   usuarios en Linux
+        /etc/hosts o /etc/hostname   ---   nombre de la maquina
+        /network/interfaces   ---   redes, ips
+        /home/[User]/.bash   ---   ver ultimos comandos ejecutados
+        /root/.bash_history
+        
+
+Extraer Memoria RAM
+________________________________________________________________
+
+# Linux: LiME
+# Actualizar Kernel
+        uname -r
+        sudo apt update
+        sudo apt full-upgrade   -o-   sudo apt dist-upgrade
+# Descargar repositorio e instalar paquetes necesarios
+        git clone https://github.com/504ensicsLabs/LiME
+        sudo apt install make
+        sudo apt install build-essential
+        sudo apt linux-headers-6.12.20-amd64
+# Compilar y creacion de archivos
+        cd /[PATH TO LiME]/LiME
+        make
+# Fijarse en lime-[KERNEL].ko
+        insmod lime-6.12.20-amd64.ko path=/tmp/memdump format=raw
+
+# Windows: Exterro FTK Imager
+        File > Capture Memory
+                Destination Path   ---   donde se guarda
+                Filename: memdump.mem
+                Include pagefile   ---   datos de un estado anterior
+# Capture memory y sacar el hast
+        certutil -hashfile memdump.mem MD5
+
+
+VOLATILITY
+________________________________________________________________
+
+# Analisis de memoria volatiles y malware
+        
+
 
 
 
