@@ -200,8 +200,25 @@ VOLATILITY
 ________________________________________________________________
 
 # Analisis de memoria volatiles y malware
-        
-
+        cd /PATH/volatility
+# Ayuda y plugin
+        ./volatility -h
+# Ver que sistema/perfil usa
+        ./volatility -f [FILE] imageninfo
+# Listar los procesos en ejecucion en un momento del dump
+        ./volatility -f [FILE] --profile=[PROFILE] pslist
+        ./volatility -f [FILE] --profile=[PROFILE] psscan
+# Todo lo que se ejecuto
+        ./volatility -f [FILE] --profile=[PROFILE] cmdline
+# Conexiones
+        ./volatility -f [FILE] --profile=[PROFILE] connscan
+# Librerias de la RAM
+        ./volatility -f [FILE] --profile=[PROFILE] dlllist -p 608
+# Añadiendo dump, se puede sercargar un ejecutable
+        --dump-dir= .   -o-   --dump-dir=/PATH
+# Solo subir a VirusTotal los HASH de los archivos
+        md5sum executable.exe
+        sd45v6sd15f46ds5f4s6d54fs
 
 
 
