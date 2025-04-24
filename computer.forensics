@@ -158,17 +158,24 @@ ________________________________________________________________
         Procesa la informacion
 # Finish
 
-# Ubicaciones importantes Linux #
-        Analisys Results > OS Accounts   ---   Numero de usuarios
-        /etc/passwd o /home/[Users]   ---   usuarios en Linux
-        Deleted Files > All   ---   archivos borrados, comprobar hast y tipo
+
+# Geolocation: Para localizaciones
+# Timeline: linea de tiempo de los metadatos
 # Dentro de fotos
         Text - File Metadatos   ---   informacion de propietario
         Analysis result   ---   Dispositivo desde el que se tomo, fecha...
-# Geolocation: Para localizaciones
-        Data Artifacts > Operating System Information   ---   Sistema operativo y Kernel
+
+        Analisys Results > OS Accounts   ---   Numero de usuarios
+        /etc/passwd o /home/[Users]   ---   usuarios en Linux
+
+        Deleted Files > All   ---   archivos borrados, comprobar hast y tipo
+
+        Data Artifacts > Operating System Information > Data Artifacts   ---   Sistema operativo
+        Data Artifacts > Operating System Information > Text   ---   Kernel
+
         /etc/hosts o /etc/hostname   ---   nombre de la maquina
-        /network/interfaces   ---   redes, ips
+        etc/network/interfaces   ---   redes, ips
+
         /home/[User]/.bash   ---   ver ultimos comandos ejecutados
         /root/.bash_history
         
