@@ -160,8 +160,13 @@ ________________________________________________________________
 
 # Ubicaciones importantes Linux #
         Analisys Results > OS Accounts   ---   Numero de usuarios
-        Data Artifacts > Operating System Information   ---   Sistema operativo y Kernel
         /etc/passwd o /home/[Users]   ---   usuarios en Linux
+        Deleted Files > All   ---   archivos borrados, comprobar hast y tipo
+# Dentro de fotos
+        Text - File Metadatos   ---   informacion de propietario
+        Analysis result   ---   Dispositivo desde el que se tomo, fecha...
+# Geolocation: Para localizaciones
+        Data Artifacts > Operating System Information   ---   Sistema operativo y Kernel
         /etc/hosts o /etc/hostname   ---   nombre de la maquina
         /network/interfaces   ---   redes, ips
         /home/[User]/.bash   ---   ver ultimos comandos ejecutados
